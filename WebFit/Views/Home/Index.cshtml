@@ -1,0 +1,200 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@model IEnumerable<WebFit.Models.Table_Cost>
+
+
+    @{
+        ViewBag.Title = "Home Page";
+    }
+
+    
+    <section class="ftco-section-services ftco-degree">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-xl-6 d-flex align-self-stretch">
+                    <div class="align-self-stretch"><img src="~/assets1/images/kru.png" class="img-fluid" alt=""></div>
+                </div>
+                <div class="col-xl-6 align-self-stretch pt-5">
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h3 class="subheading">เราสามารถ</h3>
+                            <h2 class="mb-4">ทำอะไรกับร่างกายของคุณ?</h2>
+                        </div>
+                    </div>
+                    <div class="services d-flex ftco-animate">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-ruler"></span>
+                        </div>
+                        <div class="text ml-5">
+                            <h3>
+                                วิเคราะห์เป้าหมายของคุณ
+                            </h3>
+                            <p>คุณจะทำอะไรต้องมาเป้าหมาย ความสำเร็จรอคุณอยู่</p>
+                        </div>
+                    </div>
+                    <div class="services d-flex ftco-animate">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-gym"></span>
+                        </div>
+                        <div class="text ml-5">
+                            <h3>
+                                ทำงานหนักกับมัน
+                            </h3>
+                            <p>คุณต้องมี วินัย ความอดทน และความรู้ที่ถูกต้อง</p>
+                        </div>
+                    </div>
+                    <div class="services d-flex ftco-animate">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-tools-and-utensils"></span>
+                        </div>
+                        <div class="text ml-5">
+                            <h3>
+                                ปรับปรุงประสิทธิภาพของคุณ
+                            </h3>
+                            <p>คุณต้องปรับปรุงตัวเอง และทำในสิ่งที่คุณต้องการและถูกวิธี</p>
+                        </div>
+                    </div>
+                    <div class="services d-flex ftco-animate">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-abs"></span>
+                        </div>
+                        <div class="text ml-5">
+                            <h3>
+                                รับร่างกายที่สมบูรณ์แบบของคุณ
+                            </h3>
+                            <p>และสุดท้าย คุณก็พร้อมจะมีร่างกายที่ดูดี และแข็งแรง</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate text-center">
+                    <h3 class="subheading">สมัครเรียน</h3>
+                    <h2 class="mb-1">เป็นสมาชิกฟิตเนส</h2>
+                </div>
+                <div class="row">
+                    @if (Session["priceCost"] != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="col-md-4 ftco-animate">
+                                <div class="block-7">
+                                    <div class="text-center">
+                                        @*<h2 class="heading">@item.Cost_Name</h2>*@
+                                        <span class="price"><sup></sup> <span class="number">@item.Cost_Price</span></span>
+                                        <span class="excerpt d-block">@item.Cost_Name</span>
+                                        <a href="http://cstee.kru.ac.th/Cs59/59123250105/Table_User/Logind" class="btn btn-primary d-block px-2 py-4 mb-4">สมัครสมาชิก</a>
+
+                                        <h3 class="heading-2 mb-4"></h3>
+
+                                        <ul class="pricing-text">
+                                            <li>เป็นสมาฃิกเข้าใช้งานฟิตเนส</li>
+                                            <li>ใช้งานอุปกรณ์ได้ทุกชนิด</li>
+                                            <li>ไม่จำกัดเวลา</li>
+                                            <li>มีโปรโมชั่นตลอดปี</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate text-center">
+                    <h3 class="subheading">คลาสยิม</h3>
+                    <h2 class="mb-1">ชั้นเรียนออกกำลังกาย</h2>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container">
+            <div class="row mt-4 justify-content-center ftco-animate">
+                <div class="col-md-4 text-center">
+                    <a href="@Url.Action("Programe")" class="btn-custom py-4">ดูโปแกรม ทั้งหมด <span class="ion-ios-arrow-down ml-2"></span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    @*<section class="ftco-gallery">
+            <div class="container-wrap">
+                <div class="row no-gutters">
+                    <div class="col-md-3 ftco-animate">
+                        <div class="gallery ftco-gradient d-flex justify-content-center align-items-center">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12 heading-section ftco-animate text-center">
+                                    <h3 class="subheading">รูป ผ่าน</h3>
+                                    <h2 class="mb-1">อินสตาแกรม</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ftco-animate">
+                        <a href="images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(/assets1/images/gallery-2.jpg);">
+                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                <span class="icon-instagram"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 ftco-animate">
+                        <a href="images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(/assets1/images/gallery-3.jpg);">
+                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                <span class="icon-instagram"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 ftco-animate">
+                        <a href="images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(/assets1/images/gallery-4.jpg);">
+                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                <span class="icon-instagram"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 ftco-animate">
+                        <a href="images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(/assets1/images/gallery-5.jpg);">
+                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                <span class="icon-instagram"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 ftco-animate">
+                        <a href="images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(/assets1/images/gallery-6.jpg);">
+                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                <span class="icon-instagram"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 ftco-animate">
+                        <a href="images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(/assets1/images/gallery-7.jpg);">
+                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                <span class="icon-instagram"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 ftco-animate">
+                        <a href="images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(/assets1/images/gallery-8.jpg);">
+                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                <span class="icon-instagram"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>*@

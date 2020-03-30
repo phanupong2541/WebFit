@@ -1,0 +1,157 @@
+﻿@model WebFit.Models.Table_Buy
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Session["pass"] == null)
+{
+    <script>
+          window.location.href = "@Url.Action("Logind", "Table_User")"
+    </script>
+}
+
+@using (Html.BeginForm("Create", "Table_Buy", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+
+
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.Buy_User, "ชื่อผู้ซื้อ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Buy_User", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Buy_User, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+            <section class="ftco-appointment">
+                <div class="overlay"></div>
+                <div class="container-wrap">
+                    <div class="row no-gutters d-md-flex align-items-center">
+                        <div class="col-md-6 d-flex align-self-stretch img" style="background-image: url(http://cstee.kru.ac.th/Cs59/59123250105/assets1/images/about-3.jpg);">
+                        </div>
+                        <div class="col-md-6 appointment ftco-animate">
+                            <h3 class="mb-3">เลือกซื้อคอร์สที่ต้องการ</h3>
+                            <form action="#" class="appointment-form">
+                                <div class="d-md-flex">
+                                    <div class="form-group">
+                                        <h3>เลือกคอร์ส</h3>
+                                        @Html.DropDownList("Buy_Cost", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Buy_Cost, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group ml-md-4">
+                                        <h3>เลือกโปรโมชั่น</h3>
+                                        @Html.DropDownList("Buy_Pro", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Buy_Pro, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="d-md-flex">
+                                    <div class="form-group">
+                                        <div class="input-wrap">
+                                            <h3>ราคาคอร์ส</h3>
+                                            @Html.Editor("Cost", new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                                            @Html.ValidationMessageFor(model => model.Buy_Pro, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group ml-md-4">
+                                        <div class="input-wrap">
+                                            <h3>ส่วนลด</h3>
+                                            @Html.Editor("Pro", new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                                            @Html.ValidationMessageFor(model => model.Buy_Pro, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group ml-md-4">
+                                        <h3>ราคารวม</h3>
+                                        @Html.EditorFor(model => model.TotlePrice, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                                        @Html.ValidationMessageFor(model => model.TotlePrice, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="d-md-flex">
+                                    @*<div class="form-group">
+                                            <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
+                                        </div>*@
+                                    <h3>หลักฐานการชำระ</h3>
+                                    @Html.LabelFor(model => model.Buy_Pic, "", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="form-group ml-md-4">
+                                        <input type="file" accept="image/jpeg" required="" class="form-control " name="UploadFileBase" />
+                                        @Html.ValidationMessageFor(model => model.Buy_Pic, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+        </div>
+    }
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script>
+
+        $("#Buy_Pro").on('change',
+            function() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("whereCat")',
+                    data: { id: this.value },
+                    success: function(response) {
+                        $("#Pro").val(response);
+                        SetPrice();
+                    },
+                    error: function() {
+                        //$("#commentList").append($("#name").val() + "<br/>" + $("#body").val());
+                        alert("There was an error submitting comment");
+                    }
+                });
+            });
+        $("#Buy_Cost").on('change',
+            function() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("WhereCost")',
+                    data: { id: this.value },
+                    success: function(response) {
+                        $("#Cost").val(response);
+                        SetPrice();
+                    },
+                    error: function() {
+                        //$("#commentList").append($("#name").val() + "<br/>" + $("#body").val());
+                        alert("There was an error submitting comment");
+                    }
+                });
+            });
+
+        function SetPrice() {
+            var Pro = $("#Pro").val();
+            var Cost = $("#Cost").val();
+            var total = parseInt(Cost) - parseInt(Pro);
+            $("#TotlePrice").val(total);
+
+        }
+        </script>
+    }
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+﻿@model WebFit.Models.Table_ProGrame
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายละเอียด</h2>
+
+
+    <div class="col-lg-3 d-flex">
+        <div class="coach d-md-flex flex-column-reverse align-items-stretch">
+            <div class="img" style="background-image: url(@Url.Content("~/"+@Model.PG_Pic))"></div>
+            <div class="text bg-white p-4 ftco-animate">
+                <span class="subheading">@Model.PG_Name</span>
+                <h3><a>@Model.PG_Type</a></h3>
+                <p>@Model.PG_Detail</p>
+                <ul class="ftco-social-media d-flex mt-4">
+                    <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a></li>
+                </ul>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+

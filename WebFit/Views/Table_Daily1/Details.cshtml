@@ -1,0 +1,43 @@
+﻿@model WebFit.Models.Table_Daily
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Table_Daily</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Daily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Daily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_Cost.Cost_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_Cost.Cost_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_User.User_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_User.User_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Daily }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

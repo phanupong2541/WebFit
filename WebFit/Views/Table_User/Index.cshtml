@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebFit.Models.Table_User>
+
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>ข้อมูลผู้ใช้</h2>
+
+<p>
+        @Html.ActionLink("เพิ่มผู้ใช้", "Create")
+    </p>
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.User_Tell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_Type)
+            </th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_Tell)
+            </td>
+            <td>
+
+                @if (item.User_Type == true)
+                {
+                    <p>แอดมิน</p>}
+                else
+                {
+                    <p>ลูกค้า</p>}
+            </td>
+
+            <td>
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.ID_User }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("ลบ", "Delete", new { id = item.ID_User }, new { @class = "btn btn-danger" })
+        </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}

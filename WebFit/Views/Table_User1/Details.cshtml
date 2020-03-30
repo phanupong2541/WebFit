@@ -1,0 +1,67 @@
+﻿@model WebFit.Models.Table_User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Table_User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Tell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Tell)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_User }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

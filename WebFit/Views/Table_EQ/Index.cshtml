@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebFit.Models.Table_EQ>
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+    int i = 1;
+}
+
+<div class="box">
+    <div class="box-header">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1 class="box-title">จัดการอุปกรณ์ฟิตเนส</h1>
+                <div style="float:right">
+                    <a class="btn btn-warning" href="@Url.Action("Index", "Table_Dispose")"><i class="fa fa-cube"></i> ดูข้อมูลการจำหน่ายอุปกรณ์</a>
+                    <a class="btn btn-success" href="@Url.Action("Create", "Table_EQ")"><i class="fa fa-plus"></i> เพิ่มข้อมูลอุปกรณ์</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <table id="myTable" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="text-align:center">@Html.DisplayNameFor(model => model.CE_ATNO)</th>
+                    <th style="text-align:center">@Html.DisplayNameFor(model => model.CE_NO)</th>
+                    @*<th style="text-align:center">@Html.DisplayNameFor(model => model.CE_DateIN)</th>*@
+                    <th style="text-align:center">@Html.DisplayNameFor(model => model.CE_Name)</th>
+                    @*<th style="text-align:center">@Html.DisplayNameFor(model => model.CE_Noce)</th>*@
+                    <th style="text-align:center">@Html.DisplayNameFor(model => model.CE_Piece)</th>
+                    <th style="text-align:center">@Html.DisplayNameFor(model => model.CE_Status)</th>
+                    <th style="text-align:center">@Html.DisplayNameFor(model => model.CE_DateIn)</th>
+                    <th style="text-align:center">จัดการข้อมูล</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td style="text-align:center">@(i++)</td>
+                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.CE_NO)</td>
+                    @*<td>@Html.DisplayFor(modelItem => item.CE_DateIN)</td>*@
+                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.CE_Name)</td>
+                    @*<td style="text-align:center">@Html.DisplayFor(modelItem => item.CE_Noce)</td>*@
+                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.CE_Piece)</td>
+
+                    <td>
+                        @* 1 = อยู่ในระบบ / 2 = จำหน่ายแล้ว / 3 = รอดำเนินการ *@
+                        @if (item.CE_Status == 1)
+                        {
+                            <span style="color:green">
+                                <i class="fa fa-check-circle  "></i>
+                                อยู่ในระบบ
+                            </span>
+                        }
+                        else if (item.CE_Status == 2)
+                        {
+                            <span style="color:red">
+                                <i class="fa fa-times-circle"></i>
+                                จำหน่ายแล้ว
+                            </span>
+                        }
+                        else if (item.CE_Status == 3)
+                        {
+                            <span style="color:yellow">
+                                <i class="fa  fa-circle"></i>
+                                รอดำเนินการ
+                            </span>
+                        }
+                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.CE_DateIn)</td>
+                    </td>
+                    <td class="text-center">
+                        @*<a class="btn btn-warning" href="@Url.Action("Edit", "ComputerEquipment", new { id = item.CE_ATNO })"><i class="fa fa-edit"></i>แก้ไข</a>*@
+                        <a class="btn btn-danger" href="@Url.Action("Dispose", "Table_EQ", new { id = item.CE_ATNO })"><i class="fa fa-list-ul"></i> จำหน่าย</a>
+                        @*<a class="btn btn-danger" href="@Url.Action("Delete", "ComputerEquipment", new { id = item.CE_ATNO })"><i class="fa  fa-trash-o"></i> ลบ</a>*@
+                        @*<a href='@Url.Action("Dispose", "Disposes", new { id = item.CE_ATNO })' class="btn btn-default btn-flat">จำหน่าย</a>*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+@section Scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example1').DataTable({
+                scrollCollapse: true,
+                autoWidth: false,
+                responsive: true,
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Thai.json"
+                },
+                columnDefs: [{
+                    targets: "datatable-nosort",
+                    orderable: false
+                }]
+            });
+        });</script>
+
+
+    {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+    }
+
+}

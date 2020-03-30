@@ -1,0 +1,177 @@
+﻿@model WebFit.Models.Table_User
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Create", "Table_User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Colorlib Templates">
+        <meta name="author" content="Colorlib">
+        <meta name="keywords" content="Colorlib Templates">
+        <!-- Title Page-->
+        <title>Au Register Forms by Colorlib</title>
+        <!-- Icons font CSS-->
+        <link href="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+        <link href="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <!-- Font special for pages-->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <!-- Vendor CSS-->
+        <link href="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+        <!-- Main CSS-->
+        <link href="http://cstee.kru.ac.th/Cs59/59123250105/R/css/main.css" rel="stylesheet" media="all">
+    </head>
+    <body>
+        <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+            <div class="wrapper wrapper--w680">
+                <div class="card card-4">
+                    <div class="card-body">
+                        <h2 class="title">สมัครสมาชิกฟิตเนส</h2>
+                        <form method="POST">
+
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">อีเมลล์</label>
+                                        @Html.EditorFor(model => model.ID_User, new { htmlAttributes = new { @class = "form-control input--style-4" } })
+                                        @Html.ValidationMessageFor(model => model.ID_User, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">รหัสผ่าน</label>
+                                        @Html.EditorFor(model => model.User_Pass, new { htmlAttributes = new { @class = "form-control input--style-4", @type = "password" } })
+                                        @Html.ValidationMessageFor(model => model.User_Pass, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">ชื่อ</label>
+                                        @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control input--style-4" } })
+                                        @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">ยืนยันรหัส</label>
+                                        @Html.EditorFor(model => model.User_CHKPASS, new { htmlAttributes = new { @class = "form-control input--style-4", @type = "password" } })
+                                        @Html.ValidationMessageFor(model => model.User_CHKPASS, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">เบอร์</label>
+                                        <div class="input-group-icon">
+                                            @Html.EditorFor(model => model.User_Tell, new { htmlAttributes = new { @class = "form-control input--style-4" } })
+                                            @Html.ValidationMessageFor(model => model.User_Tell, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">เพศ</label>
+                                        <div class="p-t-10">
+                                            <label class="radio-container m-r-45">
+                                                ชาย
+                                                <input type="radio" checked="checked" name="gender">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">
+                                                หญิง
+                                                <input type="radio" name="gender">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container">
+                                                อื่นๆ
+                                                <input type="radio" name="gender">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">ส่วนสูง</label>
+                                        @Html.EditorFor(model => model.User_Height, new { htmlAttributes = new { @class = "form-control input--style-4" } })
+                                        @Html.ValidationMessageFor(model => model.User_Height, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">น้ำหนัก</label>
+                                        @Html.EditorFor(model => model.User_Weight, new { htmlAttributes = new { @class = "form-control input--style-4" } })
+                                        @Html.ValidationMessageFor(model => model.User_Weight, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">รหัสพิเศษ(ไม่มีไม่ต้องกรอก)</label>
+
+                                    <input type="text" name="code" />
+                                </div>
+                            </div>
+
+
+
+                          
+
+
+
+
+
+
+                            <div class="p-t-15">
+                                <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+
+                            </div>
+
+
+
+
+
+                        </form>
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Jquery JS-->
+        <script src="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/jquery/jquery.min.js"></script>
+        <!-- Vendor JS-->
+        <script src="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/select2/select2.min.js"></script>
+        <script src="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/datepicker/moment.min.js"></script>
+        <script src="http://cstee.kru.ac.th/Cs59/59123250105/R/vendor/datepicker/daterangepicker.js"></script>
+
+        <!-- Main JS-->
+        <script src="/R/js/global.js"></script>
+    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+<!-- end document-->
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebFit.Models.Table_Daily>
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>ข้อมูลรายวัน</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มรายการ", "Create")
+</p>
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Daily)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Table_Cost.Cost_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Table_User.User_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Table_Cost.Cost_Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Daily)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Table_Cost.Cost_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Table_User.User_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Table_Cost.Cost_Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Daily }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Daily }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Daily })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
+

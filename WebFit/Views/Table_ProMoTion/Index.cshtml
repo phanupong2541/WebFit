@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebFit.Models.Table_ProMoTion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>ข้อมูลโปรโมชั่น</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มโปรโมชั่น", "Create")
+</p>
+<table id="example1" class="table table-bordered table-striped" style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_ProMo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_Detail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_Price)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_Pic)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_ProMo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pro_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pro_Detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pro_Price)
+            </td>
+            <td>
+                @if (item.Pro_Pic != null)
+                {
+                    <img src="~/@item.Pro_Pic" style="height: 85px" class="img-rounded">
+                }
+            </td>
+            <td>
+                @Html.ActionLink("แก้ไข", "Edit", new { id = item.ID_ProMo }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("ลบ", "Delete", new { id = item.ID_ProMo }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

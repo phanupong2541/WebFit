@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebFit.Models.Table_Buy>
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>ข้อมูลการซื้อ</h2>
+
+
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Buy_User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotlePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buy_Cost)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Buy_Pro)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Buy_Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buy_Stop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buy_Pic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Buy_User)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotlePrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Table_Cost.Cost_Name)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Buy_Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Buy_Stop)
+                </td>
+                <td>
+                    @if (item.Buy_Pic != null)
+                    {
+                        <img src="~/@item.Buy_Pic" style="height: 85px" class="img-rounded">
+                    }
+                </td>
+                <td>
+                    @*@Html.ActionLink("แก้ไข", "Edit", new { id = item.ID_Buy }, new { @class = "btn btn-success" }) |*@
+                    @Html.ActionLink("ยกเลิก", "Delete", new { id = item.ID_Buy }, new { @class = "btn btn-danger" })
+
+                    @if (!item.Buy_Status.Value)
+                    {
+                        @Html.ActionLink("ยืนยัน", "Confirmed", new { id = item.ID_Buy }, new { @class = "btn btn-danger" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}

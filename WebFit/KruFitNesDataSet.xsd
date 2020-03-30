@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KruFitNesDataSet" targetNamespace="http://tempuri.org/KruFitNesDataSet.xsd" xmlns:mstns="http://tempuri.org/KruFitNesDataSet.xsd" xmlns="http://tempuri.org/KruFitNesDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="KruFitNesConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KruFitNesConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.KruFitNesConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_EQTableAdapter" GeneratorDataComponentClassName="View_EQTableAdapter" Name="View_EQ" UserDataComponentName="View_EQTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KruFitNesConnectionString (Web.config)" DbObjectName="KruFitNes.dbo.View_EQ" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT CE_ATNO, CE_NO, CE_Name, CE_Piece, CE_Price, CE_PriceTotal, CE_DateIn FROM dbo.View_EQ</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CE_ATNO" DataSetColumn="CE_ATNO" />
+              <Mapping SourceColumn="CE_NO" DataSetColumn="CE_NO" />
+              <Mapping SourceColumn="CE_Name" DataSetColumn="CE_Name" />
+              <Mapping SourceColumn="CE_Piece" DataSetColumn="CE_Piece" />
+              <Mapping SourceColumn="CE_Price" DataSetColumn="CE_Price" />
+              <Mapping SourceColumn="CE_PriceTotal" DataSetColumn="CE_PriceTotal" />
+              <Mapping SourceColumn="CE_DateIn" DataSetColumn="CE_DateIn" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KruFitNesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KruFitNesDataSet" msprop:Generator_UserDSName="KruFitNesDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_EQ" msprop:Generator_TableClassName="View_EQDataTable" msprop:Generator_TableVarName="tableView_EQ" msprop:Generator_TablePropName="View_EQ" msprop:Generator_RowDeletingName="View_EQRowDeleting" msprop:Generator_RowChangingName="View_EQRowChanging" msprop:Generator_RowEvHandlerName="View_EQRowChangeEventHandler" msprop:Generator_RowDeletedName="View_EQRowDeleted" msprop:Generator_UserTableName="View_EQ" msprop:Generator_RowChangedName="View_EQRowChanged" msprop:Generator_RowEvArgName="View_EQRowChangeEvent" msprop:Generator_RowClassName="View_EQRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CE_ATNO" msprop:Generator_ColumnVarNameInTable="columnCE_ATNO" msprop:Generator_ColumnPropNameInRow="CE_ATNO" msprop:Generator_ColumnPropNameInTable="CE_ATNOColumn" msprop:Generator_UserColumnName="CE_ATNO" type="xs:int" />
+              <xs:element name="CE_NO" msprop:Generator_ColumnVarNameInTable="columnCE_NO" msprop:Generator_ColumnPropNameInRow="CE_NO" msprop:Generator_ColumnPropNameInTable="CE_NOColumn" msprop:Generator_UserColumnName="CE_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CE_Name" msprop:Generator_ColumnVarNameInTable="columnCE_Name" msprop:Generator_ColumnPropNameInRow="CE_Name" msprop:Generator_ColumnPropNameInTable="CE_NameColumn" msprop:Generator_UserColumnName="CE_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CE_Piece" msprop:Generator_ColumnVarNameInTable="columnCE_Piece" msprop:Generator_ColumnPropNameInRow="CE_Piece" msprop:Generator_ColumnPropNameInTable="CE_PieceColumn" msprop:Generator_UserColumnName="CE_Piece" type="xs:int" />
+              <xs:element name="CE_Price" msprop:Generator_ColumnVarNameInTable="columnCE_Price" msprop:Generator_ColumnPropNameInRow="CE_Price" msprop:Generator_ColumnPropNameInTable="CE_PriceColumn" msprop:Generator_UserColumnName="CE_Price" type="xs:double" minOccurs="0" />
+              <xs:element name="CE_PriceTotal" msprop:Generator_ColumnVarNameInTable="columnCE_PriceTotal" msprop:Generator_ColumnPropNameInRow="CE_PriceTotal" msprop:Generator_ColumnPropNameInTable="CE_PriceTotalColumn" msprop:Generator_UserColumnName="CE_PriceTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="CE_DateIn" msprop:Generator_ColumnVarNameInTable="columnCE_DateIn" msprop:Generator_ColumnPropNameInRow="CE_DateIn" msprop:Generator_ColumnPropNameInTable="CE_DateInColumn" msprop:Generator_UserColumnName="CE_DateIn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_EQ" />
+      <xs:field xpath="mstns:CE_ATNO" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
