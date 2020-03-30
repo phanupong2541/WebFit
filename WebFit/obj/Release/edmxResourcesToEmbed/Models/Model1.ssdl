@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KruFitNesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Table_Buy">
+    <Key>
+      <PropertyRef Name="ID_Buy" />
+    </Key>
+    <Property Name="ID_Buy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Buy_User" Type="varchar" MaxLength="50" />
+    <Property Name="Buy_Cost" Type="int" />
+    <Property Name="Buy_Pro" Type="int" />
+    <Property Name="TotlePrice" Type="float" />
+    <Property Name="Buy_Start" Type="date" />
+    <Property Name="Buy_Stop" Type="date" />
+    <Property Name="Buy_Status" Type="bit" />
+    <Property Name="Buy_Pic" Type="text" />
+  </EntityType>
+  <EntityType Name="Table_Cost">
+    <Key>
+      <PropertyRef Name="ID_Cost" />
+    </Key>
+    <Property Name="ID_Cost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cost_Name" Type="varchar" MaxLength="10" />
+    <Property Name="Cost_Price" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Table_Dispose">
+    <Key>
+      <PropertyRef Name="DIS_ATNO" />
+    </Key>
+    <Property Name="DIS_ATNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CE_ATNO" Type="int" />
+    <Property Name="DIS_DateOUT" Type="datetime" />
+    <Property Name="DIS_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Table_EQ">
+    <Key>
+      <PropertyRef Name="CE_ATNO" />
+    </Key>
+    <Property Name="CE_ATNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CE_NO" Type="varchar" MaxLength="50" />
+    <Property Name="CE_Name" Type="varchar" MaxLength="50" />
+    <Property Name="CE_Piece" Type="int" Nullable="false" />
+    <Property Name="CE_Price" Type="float" />
+    <Property Name="CE_PriceTotal" Type="float" />
+    <Property Name="CE_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Table_ProGrame">
+    <Key>
+      <PropertyRef Name="ID_Programe" />
+    </Key>
+    <Property Name="ID_Programe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PG_Name" Type="varchar" MaxLength="20" />
+    <Property Name="PG_Type" Type="int" />
+    <Property Name="PG_Detail" Type="varchar(max)" />
+    <Property Name="PG_Pic" Type="text" />
+    <Property Name="PG_Video" Type="text" />
+  </EntityType>
+  <EntityType Name="Table_ProMoTion">
+    <Key>
+      <PropertyRef Name="ID_ProMo" />
+    </Key>
+    <Property Name="ID_ProMo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pro_Name" Type="varchar" MaxLength="30" />
+    <Property Name="Pro_Detail" Type="text" />
+    <Property Name="Pro_Price" Type="float" />
+    <Property Name="Pro_Pic" Type="text" />
+  </EntityType>
+  <EntityType Name="Table_TypePG">
+    <Key>
+      <PropertyRef Name="ID_TypePG" />
+    </Key>
+    <Property Name="ID_TypePG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypePG_Name" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Table_User">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_Pass" Type="varchar" MaxLength="50" />
+    <Property Name="User_Type" Type="bit" />
+    <Property Name="User_Height" Type="float" />
+    <Property Name="User_Weight" Type="float" />
+    <Property Name="User_Tell" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KruFitNes.dbo.View_BuyPro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_BuyPro">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Cost_Name" Type="varchar" MaxLength="10" />
+    <Property Name="Pro_Name" Type="varchar" MaxLength="30" />
+    <Property Name="TotlePrice" Type="float" />
+    <Property Name="Buy_Start" Type="date" />
+    <Property Name="Buy_Stop" Type="date" />
+    <Property Name="Buy_Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KruFitNes.dbo.View_Dis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Dis">
+    <Key>
+      <PropertyRef Name="CE_Piece" />
+      <PropertyRef Name="CE_ATNO" />
+    </Key>
+    <Property Name="CE_Name" Type="varchar" MaxLength="50" />
+    <Property Name="CE_Piece" Type="int" Nullable="false" />
+    <Property Name="CE_Price" Type="float" />
+    <Property Name="CE_PriceTotal" Type="float" />
+    <Property Name="CE_Status" Type="int" />
+    <Property Name="CE_NO" Type="varchar" MaxLength="50" />
+    <Property Name="CE_ATNO" Type="int" Nullable="false" />
+    <Property Name="DIS_DateOUT" Type="datetime" />
+    <Property Name="DIS_Status" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KruFitNes.dbo.View_User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_User">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_Pass" Type="varchar" MaxLength="50" />
+    <Property Name="User_Type" Type="bit" />
+    <Property Name="User_Height" Type="float" />
+    <Property Name="User_Weight" Type="float" />
+    <Property Name="User_Tell" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_Table_Buy_Table_Cost">
+    <End Role="Table_Cost" Type="Self.Table_Cost" Multiplicity="0..1" />
+    <End Role="Table_Buy" Type="Self.Table_Buy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Cost">
+        <PropertyRef Name="ID_Cost" />
+      </Principal>
+      <Dependent Role="Table_Buy">
+        <PropertyRef Name="Buy_Cost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Buy_Table_ProMoTion">
+    <End Role="Table_ProMoTion" Type="Self.Table_ProMoTion" Multiplicity="0..1" />
+    <End Role="Table_Buy" Type="Self.Table_Buy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_ProMoTion">
+        <PropertyRef Name="ID_ProMo" />
+      </Principal>
+      <Dependent Role="Table_Buy">
+        <PropertyRef Name="Buy_Pro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Buy_Table_User">
+    <End Role="Table_User" Type="Self.Table_User" Multiplicity="0..1" />
+    <End Role="Table_Buy" Type="Self.Table_Buy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_User">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="Table_Buy">
+        <PropertyRef Name="Buy_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Dispose_Table_EQ1">
+    <End Role="Table_EQ" Type="Self.Table_EQ" Multiplicity="0..1" />
+    <End Role="Table_Dispose" Type="Self.Table_Dispose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_EQ">
+        <PropertyRef Name="CE_ATNO" />
+      </Principal>
+      <Dependent Role="Table_Dispose">
+        <PropertyRef Name="CE_ATNO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ProGrame_Table_TypePG">
+    <End Role="Table_TypePG" Type="Self.Table_TypePG" Multiplicity="0..1" />
+    <End Role="Table_ProGrame" Type="Self.Table_ProGrame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_TypePG">
+        <PropertyRef Name="ID_TypePG" />
+      </Principal>
+      <Dependent Role="Table_ProGrame">
+        <PropertyRef Name="PG_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KruFitNesModelStoreContainer">
+    <EntitySet Name="Table_Buy" EntityType="Self.Table_Buy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Cost" EntityType="Self.Table_Cost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Dispose" EntityType="Self.Table_Dispose" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_EQ" EntityType="Self.Table_EQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_ProGrame" EntityType="Self.Table_ProGrame" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_ProMoTion" EntityType="Self.Table_ProMoTion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_TypePG" EntityType="Self.Table_TypePG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_User" EntityType="Self.Table_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_BuyPro" EntityType="Self.View_BuyPro" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_BuyPro].[ID_User] AS [ID_User], 
+    [View_BuyPro].[User_Name] AS [User_Name], 
+    [View_BuyPro].[Cost_Name] AS [Cost_Name], 
+    [View_BuyPro].[Pro_Name] AS [Pro_Name], 
+    [View_BuyPro].[TotlePrice] AS [TotlePrice], 
+    [View_BuyPro].[Buy_Start] AS [Buy_Start], 
+    [View_BuyPro].[Buy_Stop] AS [Buy_Stop], 
+    [View_BuyPro].[Buy_Status] AS [Buy_Status]
+    FROM [dbo].[View_BuyPro] AS [View_BuyPro]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Dis" EntityType="Self.View_Dis" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Dis].[CE_Name] AS [CE_Name], 
+    [View_Dis].[CE_Piece] AS [CE_Piece], 
+    [View_Dis].[CE_Price] AS [CE_Price], 
+    [View_Dis].[CE_PriceTotal] AS [CE_PriceTotal], 
+    [View_Dis].[CE_Status] AS [CE_Status], 
+    [View_Dis].[CE_NO] AS [CE_NO], 
+    [View_Dis].[CE_ATNO] AS [CE_ATNO], 
+    [View_Dis].[DIS_DateOUT] AS [DIS_DateOUT], 
+    [View_Dis].[DIS_Status] AS [DIS_Status]
+    FROM [dbo].[View_Dis] AS [View_Dis]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_User" EntityType="Self.View_User" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_User].[ID_User] AS [ID_User], 
+    [View_User].[User_Name] AS [User_Name], 
+    [View_User].[User_Pass] AS [User_Pass], 
+    [View_User].[User_Type] AS [User_Type], 
+    [View_User].[User_Height] AS [User_Height], 
+    [View_User].[User_Weight] AS [User_Weight], 
+    [View_User].[User_Tell] AS [User_Tell]
+    FROM [dbo].[View_User] AS [View_User]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Table_Buy_Table_Cost" Association="Self.FK_Table_Buy_Table_Cost">
+      <End Role="Table_Cost" EntitySet="Table_Cost" />
+      <End Role="Table_Buy" EntitySet="Table_Buy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Buy_Table_ProMoTion" Association="Self.FK_Table_Buy_Table_ProMoTion">
+      <End Role="Table_ProMoTion" EntitySet="Table_ProMoTion" />
+      <End Role="Table_Buy" EntitySet="Table_Buy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Buy_Table_User" Association="Self.FK_Table_Buy_Table_User">
+      <End Role="Table_User" EntitySet="Table_User" />
+      <End Role="Table_Buy" EntitySet="Table_Buy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Dispose_Table_EQ1" Association="Self.FK_Table_Dispose_Table_EQ1">
+      <End Role="Table_EQ" EntitySet="Table_EQ" />
+      <End Role="Table_Dispose" EntitySet="Table_Dispose" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ProGrame_Table_TypePG" Association="Self.FK_Table_ProGrame_Table_TypePG">
+      <End Role="Table_TypePG" EntitySet="Table_TypePG" />
+      <End Role="Table_ProGrame" EntitySet="Table_ProGrame" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

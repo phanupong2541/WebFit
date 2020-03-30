@@ -1,0 +1,129 @@
+﻿@model WebFit.Models.Table_EQ
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Table_EQ</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.CE_ATNO, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.CE_ATNO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CE_ATNO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.CE_NO, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.CE_NO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CE_NO, "", new { @class = "text-danger" })
+            </div>
+
+
+        </div>*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.CE_NO, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CE_NO, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CE_NO, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CE_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CE_Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CE_Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.CE_Noce, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CE_Noce, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CE_Noce, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CE_Piece, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CE_Piece, new { htmlAttributes = new { @class = "form-control", @id = "piece" } })
+            @Html.ValidationMessageFor(model => model.CE_Piece, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CE_Price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CE_Price, new { htmlAttributes = new { @class = "form-control", @id = "price" } })
+            @Html.ValidationMessageFor(model => model.CE_Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CE_PriceTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CE_PriceTotal, new { htmlAttributes = new { @class = "form-control", @id = "pricetotal", @Readonly = true } })
+            @Html.ValidationMessageFor(model => model.CE_PriceTotal, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.CE_Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CE_Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CE_Status, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+
+        $('#price').change(function () {
+            var piece = $("#piece").val();
+            var price = $("#price").val();
+
+
+
+            $("#pricetotal").val((piece * price).toFixed(2));
+        });
+        $('#price').change(function () {
+            var piece = $("#piece").val();
+            var price = $("#price").val();
+
+
+
+
+            $("#pricetotal").val((piece * price).toFixed(2));
+        });
+
+    });
+
+
+</script>
+

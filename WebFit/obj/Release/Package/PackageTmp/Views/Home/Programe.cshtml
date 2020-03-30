@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebFit.Models.Table_ProGrame>
+@{
+    ViewBag.Title = "Programe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="ftco-section">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-program ftco-animate">
+                        <a href="@Url.Action("Details","Table_ProGrame", new { id = item.ID_Programe })" class="img d-flex justify-content-center align-items-center" style="background-image: url(http://cstee.kru.ac.th/cs59/59123250105/@item.PG_Pic)">
+                            <span>@item.PG_Name</span>
+                        </a>
+                        <div class="text mt-3">
+                            <h3><a href=""></a></h3>
+                            <p>@item.PG_Detail</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

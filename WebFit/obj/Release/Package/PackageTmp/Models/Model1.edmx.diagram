@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c282ca6e3a74a60b97100a10b36b6ca" Name="Diagram1">
+        <EntityTypeShape EntityType="KruFitNesModel.Table_Buy" Width="1.5" PointX="4.375" PointY="0.875" />
+        <EntityTypeShape EntityType="KruFitNesModel.Table_Cost" Width="1.5" PointX="4.125" PointY="5" />
+        <EntityTypeShape EntityType="KruFitNesModel.Table_Dispose" Width="1.5" PointX="7.25" PointY="4.625" />
+        <EntityTypeShape EntityType="KruFitNesModel.Table_EQ" Width="1.5" PointX="7.375" PointY="7.375" />
+        <EntityTypeShape EntityType="KruFitNesModel.Table_ProGrame" Width="1.5" PointX="9.75" PointY="0.5" />
+        <EntityTypeShape EntityType="KruFitNesModel.Table_ProMoTion" Width="1.5" PointX="2.125" PointY="1.5" />
+        <EntityTypeShape EntityType="KruFitNesModel.Table_TypePG" Width="1.5" PointX="7.375" PointY="0.5" />
+        <EntityTypeShape EntityType="KruFitNesModel.Table_User" Width="1.5" PointX="1.375" PointY="4.125" />
+        <EntityTypeShape EntityType="KruFitNesModel.View_BuyPro" Width="1.5" PointX="10" PointY="5.75" />
+        <EntityTypeShape EntityType="KruFitNesModel.View_Dis" Width="1.5" PointX="9.625" PointY="9.5" />
+        <EntityTypeShape EntityType="KruFitNesModel.View_User" Width="1.5" PointX="4.125" PointY="9.625" />
+        <AssociationConnector Association="KruFitNesModel.FK_Table_Buy_Table_Cost" />
+        <AssociationConnector Association="KruFitNesModel.FK_Table_Buy_Table_ProMoTion" />
+        <AssociationConnector Association="KruFitNesModel.FK_Table_Buy_Table_User" />
+        <AssociationConnector Association="KruFitNesModel.FK_Table_Dispose_Table_EQ1" />
+        <AssociationConnector Association="KruFitNesModel.FK_Table_ProGrame_Table_TypePG" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

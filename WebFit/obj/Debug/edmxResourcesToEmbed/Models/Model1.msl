@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KruFitNesModelStoreContainer" CdmEntityContainer="KruFitNesEntities">
+    <EntitySetMapping Name="Table_Buy">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_Buy">
+        <MappingFragment StoreEntitySet="Table_Buy">
+          <ScalarProperty Name="ID_Buy" ColumnName="ID_Buy" />
+          <ScalarProperty Name="Buy_User" ColumnName="Buy_User" />
+          <ScalarProperty Name="Buy_Cost" ColumnName="Buy_Cost" />
+          <ScalarProperty Name="Buy_Pro" ColumnName="Buy_Pro" />
+          <ScalarProperty Name="TotlePrice" ColumnName="TotlePrice" />
+          <ScalarProperty Name="Buy_Start" ColumnName="Buy_Start" />
+          <ScalarProperty Name="Buy_Stop" ColumnName="Buy_Stop" />
+          <ScalarProperty Name="Buy_Status" ColumnName="Buy_Status" />
+          <ScalarProperty Name="Buy_Pic" ColumnName="Buy_Pic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Cost">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_Cost">
+        <MappingFragment StoreEntitySet="Table_Cost">
+          <ScalarProperty Name="ID_Cost" ColumnName="ID_Cost" />
+          <ScalarProperty Name="Cost_Name" ColumnName="Cost_Name" />
+          <ScalarProperty Name="Cost_Price" ColumnName="Cost_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Daily">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_Daily">
+        <MappingFragment StoreEntitySet="Table_Daily">
+          <ScalarProperty Name="ID_Daily" ColumnName="ID_Daily" />
+          <ScalarProperty Name="ID_UserDaily" ColumnName="ID_UserDaily" />
+          <ScalarProperty Name="ID_Cost" ColumnName="ID_Cost" />
+          <ScalarProperty Name="Date_Daily" ColumnName="Date_Daily" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Dispose">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_Dispose">
+        <MappingFragment StoreEntitySet="Table_Dispose">
+          <ScalarProperty Name="DIS_ATNO" ColumnName="DIS_ATNO" />
+          <ScalarProperty Name="CE_ATNO" ColumnName="CE_ATNO" />
+          <ScalarProperty Name="DIS_DateOUT" ColumnName="DIS_DateOUT" />
+          <ScalarProperty Name="DIS_Status" ColumnName="DIS_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_EQ">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_EQ">
+        <MappingFragment StoreEntitySet="Table_EQ">
+          <ScalarProperty Name="CE_ATNO" ColumnName="CE_ATNO" />
+          <ScalarProperty Name="CE_NO" ColumnName="CE_NO" />
+          <ScalarProperty Name="CE_Name" ColumnName="CE_Name" />
+          <ScalarProperty Name="CE_Piece" ColumnName="CE_Piece" />
+          <ScalarProperty Name="CE_Price" ColumnName="CE_Price" />
+          <ScalarProperty Name="CE_PriceTotal" ColumnName="CE_PriceTotal" />
+          <ScalarProperty Name="CE_Status" ColumnName="CE_Status" />
+          <ScalarProperty Name="CE_DateIn" ColumnName="CE_DateIn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_ProGrame">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_ProGrame">
+        <MappingFragment StoreEntitySet="Table_ProGrame">
+          <ScalarProperty Name="ID_Programe" ColumnName="ID_Programe" />
+          <ScalarProperty Name="PG_Name" ColumnName="PG_Name" />
+          <ScalarProperty Name="PG_Type" ColumnName="PG_Type" />
+          <ScalarProperty Name="PG_Detail" ColumnName="PG_Detail" />
+          <ScalarProperty Name="PG_Pic" ColumnName="PG_Pic" />
+          <ScalarProperty Name="PG_Video" ColumnName="PG_Video" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_ProMoTion">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_ProMoTion">
+        <MappingFragment StoreEntitySet="Table_ProMoTion">
+          <ScalarProperty Name="ID_ProMo" ColumnName="ID_ProMo" />
+          <ScalarProperty Name="Pro_Name" ColumnName="Pro_Name" />
+          <ScalarProperty Name="Pro_Detail" ColumnName="Pro_Detail" />
+          <ScalarProperty Name="Pro_Price" ColumnName="Pro_Price" />
+          <ScalarProperty Name="Pro_Pic" ColumnName="Pro_Pic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_TypePG">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_TypePG">
+        <MappingFragment StoreEntitySet="Table_TypePG">
+          <ScalarProperty Name="ID_TypePG" ColumnName="ID_TypePG" />
+          <ScalarProperty Name="TypePG_Name" ColumnName="TypePG_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_User">
+      <EntityTypeMapping TypeName="KruFitNesModel.Table_User">
+        <MappingFragment StoreEntitySet="Table_User">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Pass" ColumnName="User_Pass" />
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+          <ScalarProperty Name="User_Height" ColumnName="User_Height" />
+          <ScalarProperty Name="User_Weight" ColumnName="User_Weight" />
+          <ScalarProperty Name="User_Tell" ColumnName="User_Tell" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_BuyCost">
+      <EntityTypeMapping TypeName="KruFitNesModel.View_BuyCost">
+        <MappingFragment StoreEntitySet="View_BuyCost">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="Cost_Name" ColumnName="Cost_Name" />
+          <ScalarProperty Name="Cost_Price" ColumnName="Cost_Price" />
+          <ScalarProperty Name="Pro_Name" ColumnName="Pro_Name" />
+          <ScalarProperty Name="Pro_Price" ColumnName="Pro_Price" />
+          <ScalarProperty Name="TotlePrice" ColumnName="TotlePrice" />
+          <ScalarProperty Name="Buy_Start" ColumnName="Buy_Start" />
+          <ScalarProperty Name="Buy_Stop" ColumnName="Buy_Stop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_EQ">
+      <EntityTypeMapping TypeName="KruFitNesModel.View_EQ">
+        <MappingFragment StoreEntitySet="View_EQ">
+          <ScalarProperty Name="CE_ATNO" ColumnName="CE_ATNO" />
+          <ScalarProperty Name="CE_NO" ColumnName="CE_NO" />
+          <ScalarProperty Name="CE_Name" ColumnName="CE_Name" />
+          <ScalarProperty Name="CE_Piece" ColumnName="CE_Piece" />
+          <ScalarProperty Name="CE_Price" ColumnName="CE_Price" />
+          <ScalarProperty Name="CE_PriceTotal" ColumnName="CE_PriceTotal" />
+          <ScalarProperty Name="CE_DateIn" ColumnName="CE_DateIn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_User">
+      <EntityTypeMapping TypeName="KruFitNesModel.View_User">
+        <MappingFragment StoreEntitySet="View_User">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+          <ScalarProperty Name="User_Tell" ColumnName="User_Tell" />
+          <ScalarProperty Name="User_Weight" ColumnName="User_Weight" />
+          <ScalarProperty Name="User_Height" ColumnName="User_Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebFit.Models.Table_Cost>
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>คอร์สของฟิตเนต</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มคอร์ส", "Create")
+</p>
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                รหัสคอร์ส
+            </th>
+            <th>
+                ชื่อคอร์ส
+            </th>
+            <th>
+                ราคา
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost_Price)
+                </td>
+                <td>
+                    @Html.ActionLink("แก้ไข", "Edit", new { id = item.ID_Cost }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("ลบ", "Delete", new { id = item.ID_Cost }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}

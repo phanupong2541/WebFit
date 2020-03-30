@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebFit.Models.Table_Dispose>
+
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+    int i = 1;
+}
+
+<h2>ข้อมูลการจำหน่าย</h2>
+
+
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DIS_ATNO)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.CE_ATNO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DIS_DateOUT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DIS_Status)
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center">@(i++)</td>
+                <td style="text-align:center">@Html.DisplayFor(modelItem => item.Table_EQ.CE_Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.DIS_DateOUT)</td>
+                @*<td>@Html.DisplayFor(modelItem => item.DIS_DateAPP)</td>*@
+                <td>
+                    @* 1 = รอดำเนินการ / 2 = จำหน่ายแล้ว / 3 = ยกเลิกการจำหน่าย *@
+                    @if (item.DIS_Status == 1)
+                    {
+                        <span style="color:#F8E507">
+                            <i class="fa  fa-circle"></i>
+                            รอดำเนินการ
+                        </span>
+                    }
+                    else if (item.DIS_Status == 2)
+                    {
+                        <span style="color:green">
+                            <i class="fa  fa-check-circle"></i>
+                            จำหน่ายแล้ว
+                        </span>
+                    }
+                    else if (item.DIS_Status == 3)
+                    {
+                        <span style="color:red">
+                            <i class="fa fa-times-circle"></i>
+                            ยกเลิกการจำหน่าย
+                        </span>
+                    }
+                </td>
+                @if (item.DIS_Status == 1)
+                {
+                    <td style="text-align:center">
+                        <a class="btn btn-success" href="@Url.Action("DisposeAgree", new { id = item.CE_ATNO })"><i class="fa fa-check"></i> อนุมัติ</a>
+                        <a class="btn btn-danger" href="@Url.Action("DisposeCancle", new { id = item.CE_ATNO })"><i class="fa fa-close"></i> ยกเลิก</a>
+                    </td>
+                }
+                else if (item.DIS_Status == 2)
+                {
+                    <td></td>
+                }
+                else if (item.DIS_Status == 3)
+                {
+                    <td></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
+

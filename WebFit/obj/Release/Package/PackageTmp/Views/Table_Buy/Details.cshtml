@@ -1,0 +1,63 @@
+﻿@model WebFit.Models.Table_Buy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>รายละเอียด</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotlePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotlePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buy_Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buy_Start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buy_Stop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buy_Stop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_Cost.Cost_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_Cost.Cost_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_ProMoTion.Pro_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_ProMoTion.Pro_Name)
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Buy }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

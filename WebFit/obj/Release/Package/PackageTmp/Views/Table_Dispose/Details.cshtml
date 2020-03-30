@@ -1,0 +1,36 @@
+﻿@model WebFit.Models.Table_Dispose
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>รายละเอียด</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DIS_DateOUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIS_DateOUT)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_EQ.CE_NO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_EQ.CE_NO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+  
+    @Html.ActionLink("Back to List", "Index")
+</p>
